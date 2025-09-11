@@ -74,6 +74,10 @@
       display: block;
       animation: fadeIn 0.5s ease;
     }
+    #musicProgress {
+      width: 80%;
+      margin-top: 10px;
+    }
     @keyframes fadeIn {
       from {opacity:0; transform: translateY(6px);}
       to {opacity:1; transform: translateY(0);}
@@ -87,6 +91,10 @@
       <h1>Hi there! 💖</h1>
       <p>Welcome to my super cute page 🌸</p>
       <button onclick="showPage2()">Click me ✨</button>
+      <br>
+      <button id="musicBtn" onclick="toggleMusic()">🔇 Music Off</button>
+      <br>
+      <input type="range" id="musicProgress" min="0" max="100" value="0">
     </div>
 
     <!-- Hidden page with Yes/No options -->
@@ -102,26 +110,60 @@
     </div>
   </div>
 
+  <!-- Background music -->
+  <audio id="bgMusic" loop>
+    <source src="NAPA-Deslocado.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const progress = document.getElementById('musicProgress');
+
     function showPage2(){
       document.getElementById('page1').classList.add('hidden');
       document.getElementById('page2').classList.remove('hidden');
       document.getElementById('message').classList.remove('show');
     }
+
     function showPage1(){
       document.getElementById('page2').classList.add('hidden');
       document.getElementById('page1').classList.remove('hidden');
     }
+
     function answerYes(){
       const msg = document.getElementById('message');
       msg.textContent = 'Yay! You said YES 💕✨ That makes me so happy! 🎉';
       msg.classList.add('show');
     }
+
     function answerNo(){
       const msg = document.getElementById('message');
       msg.textContent = 'Oh no 😢 But that’s okay, you are still awesome 🌈💫';
       msg.classList.add('show');
     }
+
+    function toggleMusic(){
+      if(music.paused){
+        music.play();
+        musicBtn.textContent = '🔊 Music On';
+      } else {
+        music.pause();
+        musicBtn.textContent = '🔇 Music Off';
+      }
+    }
+
+    // Update progress bar
+    music.addEventListener('timeupdate', () => {
+      const percent = (music.currentTime / music.duration) * 100;
+      progress.value = percent || 0;
+    });
+
+    // Seek functionality
+    progress.addEventListener('input', () => {
+      music.currentTime = (progress.value / 100) * music.duration;
+    });
   </script>
 </body>
 </html>
