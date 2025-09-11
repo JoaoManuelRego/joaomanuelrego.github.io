@@ -17,40 +17,66 @@
     }
     .card {
       background: white;
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 420px;
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 460px;
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.18);
     }
     h1 {
       font-size: 28px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       color: #ff69b4;
     }
     p {
-      margin: 0 0 20px;
+      margin: 0 0 22px;
     }
     button {
-      background: #ffb6c1;
+      background: linear-gradient(135deg, #ffb6c1, #ff8da1);
       border: none;
-      padding: 12px 20px;
-      border-radius: 12px;
+      padding: 12px 22px;
+      border-radius: 14px;
       font-size: 16px;
       cursor: pointer;
-      transition: background 0.2s;
-      margin: 6px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin: 8px;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(255,105,180,0.3);
     }
     button:hover {
-      background: #ff8da1;
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(255,105,180,0.4);
     }
     .hidden {
       display: none;
     }
     .emoji {
-      font-size: 40px;
-      margin: 10px 0;
+      font-size: 46px;
+      margin: 16px 0;
+    }
+    .message-box {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 15px;
+      display: none;
+      background: #ffe6f0;
+      color: #b03060;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .message-box.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(6px);}
+      to {opacity:1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -70,6 +96,7 @@
       <p>You discovered the secret page. Do you like it? 💕</p>
       <button onclick="answerYes()">Yes 💖</button>
       <button onclick="answerNo()">No 😢</button>
+      <div id="message" class="message-box"></div>
       <br>
       <button onclick="showPage1()">Go back ⬅️</button>
     </div>
@@ -79,16 +106,21 @@
     function showPage2(){
       document.getElementById('page1').classList.add('hidden');
       document.getElementById('page2').classList.remove('hidden');
+      document.getElementById('message').classList.remove('show');
     }
     function showPage1(){
       document.getElementById('page2').classList.add('hidden');
       document.getElementById('page1').classList.remove('hidden');
     }
     function answerYes(){
-      alert('Yay! You said YES 💕✨ That makes me so happy! 🎉');
+      const msg = document.getElementById('message');
+      msg.textContent = 'Yay! You said YES 💕✨ That makes me so happy! 🎉';
+      msg.classList.add('show');
     }
     function answerNo(){
-      alert('Oh no 😢 But that’s okay, you are still awesome 🌈💫');
+      const msg = document.getElementById('message');
+      msg.textContent = 'Oh no 😢 But that’s okay, you are still awesome 🌈💫';
+      msg.classList.add('show');
     }
   </script>
 </body>
