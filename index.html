@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cute Site ✨</title>
+  <title>Para a: Maria Beatriz Morais ✨</title>
   <style>
     body {
       margin: 0;
@@ -88,25 +88,32 @@
   <div class="card">
     <!-- Initial page -->
     <div id="page1">
-      <h1>Hi there! 💖</h1>
-      <p>Welcome to my super cute page 🌸</p>
-      <button onclick="showPage2()">Click me ✨</button>
+      <h1>Olá Bea! 💖</h1>
+      <p>Espero que estejas radiante agora, tal como mereces ✨</p>
+	  <p>Isto aqui é tudo muito simples e fácil, mas diverti-me imenso a fazer 🌸</p>
+	  <p>Mas menos é mais</p>
+	  <p>Desculpa babe 😘</p>
+	  <p>A nossa história ainda é curta, mas já merecemos um livro.</p>
+	  <p>Não páras de me fascinar, estou a adorar te conhecer, és especial para mim!</p>
+	  <p>Poderia continuar a escrever aqui, mas não tenho espaço no domínio...</p>
+	  <p></p>
+	  <p>Carrega agora em continuar, mas só se quiseres.</p>
+      <button onclick="showPage2()">Continuar ...</button>
       <br>
-      <button id="musicBtn" onclick="toggleMusic()">🔇 Music Off</button>
+      <button id="musicBtn" onclick="toggleMusic()">🔇 Musica Desligada - Queres Ligar?!</button>
       <br>
       <input type="range" id="musicProgress" min="0" max="100" value="0">
     </div>
 
     <!-- Hidden page with Yes/No options -->
     <div id="page2" class="hidden">
-      <h1>Yay! 🎉</h1>
-      <div class="emoji">🐱🌈🍓</div>
-      <p>You discovered the secret page. Do you like it? 💕</p>
-      <button onclick="answerYes()">Yes 💖</button>
-      <button onclick="answerNo()">No 😢</button>
+      <h1>Maria Beatriz!</h1>
+      <p>Queres ser a minha parceira? Eu quero ser o teu 💕</p>
+      <button onclick="answerYes()">Sim 💖</button>
+      <button onclick="answerNo()">Não</button>
       <div id="message" class="message-box"></div>
       <br>
-      <button onclick="showPage1()">Go back ⬅️</button>
+      <button onclick="showPage1()">Voltar ⬅️</button>
     </div>
   </div>
 
@@ -134,23 +141,23 @@
 
     function answerYes(){
       const msg = document.getElementById('message');
-      msg.textContent = 'Yay! You said YES 💕✨ That makes me so happy! 🎉';
+      msg.textContent = 'És uma boa parte do meu mundo, vamos criar um nosso, juntos 💕🎉';
       msg.classList.add('show');
     }
 
     function answerNo(){
       const msg = document.getElementById('message');
-      msg.textContent = 'Oh no 😢 But that’s okay, you are still awesome 🌈💫';
+      msg.textContent = 'Tudo bem, mas enquanto deixares, vou-te tentar conquistar todos os dias! 😘';
       msg.classList.add('show');
     }
 
     function toggleMusic(){
       if(music.paused){
         music.play();
-        musicBtn.textContent = '🔊 Music On';
+        musicBtn.textContent = '🔊 Musica Ligada - Aproveita Coração -Queres Desligar?';
       } else {
         music.pause();
-        musicBtn.textContent = '🔇 Music Off';
+        musicBtn.textContent = '🔇 Musica Desligada - Queres Ligar?';
       }
     }
 
