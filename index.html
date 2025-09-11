@@ -1,12 +1,95 @@
-<!DOCTYPE html>
-<html>
-<Head>  
-<title>  
-Maria Beatriz & João Manuel
-</title>  
-</Head>  
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cute Site ✨</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", "Comic Neue", cursive;
+      background: linear-gradient(135deg, #ffe6f7, #e6f7ff);
+      color: #444;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: #ff69b4;
+    }
+    p {
+      margin: 0 0 20px;
+    }
+    button {
+      background: #ffb6c1;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin: 6px;
+    }
+    button:hover {
+      background: #ff8da1;
+    }
+    .hidden {
+      display: none;
+    }
+    .emoji {
+      font-size: 40px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
 <body>
-<h1>Website under maintenance!</h1>
-<p>Will be back soon...</p>
+  <div class="card">
+    <!-- Initial page -->
+    <div id="page1">
+      <h1>Hi there! 💖</h1>
+      <p>Welcome to my super cute page 🌸</p>
+      <button onclick="showPage2()">Click me ✨</button>
+    </div>
+
+    <!-- Hidden page with Yes/No options -->
+    <div id="page2" class="hidden">
+      <h1>Yay! 🎉</h1>
+      <div class="emoji">🐱🌈🍓</div>
+      <p>You discovered the secret page. Do you like it? 💕</p>
+      <button onclick="answerYes()">Yes 💖</button>
+      <button onclick="answerNo()">No 😢</button>
+      <br>
+      <button onclick="showPage1()">Go back ⬅️</button>
+    </div>
+  </div>
+
+  <script>
+    function showPage2(){
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+    function showPage1(){
+      document.getElementById('page2').classList.add('hidden');
+      document.getElementById('page1').classList.remove('hidden');
+    }
+    function answerYes(){
+      alert('Yay! You said YES 💕✨ That makes me so happy! 🎉');
+    }
+    function answerNo(){
+      alert('Oh no 😢 But that’s okay, you are still awesome 🌈💫');
+    }
+  </script>
 </body>
 </html>
