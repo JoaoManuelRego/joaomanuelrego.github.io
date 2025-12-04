@@ -1,11 +1,11 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js';
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js';
-import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/loaders/STLLoader.js';
-import { GUI } from 'https://cdn.jsdelivr.net/npm/dat.gui@0.7.9/build/dat.gui.module.js';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import { GUI } from 'dat.gui';
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xffffff);
+scene.background = new THREE.Color(0xffffff); // default white background
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -66,7 +66,7 @@ const params = {
 // Auto-center button
 gui.add(params, 'autoCenter').name('Auto Center');
 
-// Zoom slider
+// Zoom slider (wider range)
 gui.add(params, 'zoom', 5, 100, 1).name('Camera Zoom').onChange(value => {
   camera.position.set(camera.position.x, camera.position.y, value);
 });
