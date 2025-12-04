@@ -1,11 +1,11 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
-import { GUI } from 'dat.gui';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js';
+import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/loaders/STLLoader.js';
+import { GUI } from 'https://cdn.jsdelivr.net/npm/dat.gui@0.7.9/build/dat.gui.module.js';
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xffffff); // default white background
+scene.background = new THREE.Color(0xffffff);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -64,28 +64,28 @@ const params = {
 };
 
 // Auto-center button
-gui.add(params, 'autoCenter').name('Auto-Centragem');
+gui.add(params, 'autoCenter').name('Auto Center');
 
-// Zoom slider (wider range)
-gui.add(params, 'zoom', 5, 100, 1).name('Câmara Zoom').onChange(value => {
+// Zoom slider
+gui.add(params, 'zoom', 5, 100, 1).name('Camera Zoom').onChange(value => {
   camera.position.set(camera.position.x, camera.position.y, value);
 });
 
 // Mesh color picker
-gui.addColor(params, 'color').name('Cor da Peça').onChange(value => {
+gui.addColor(params, 'color').name('Model Color').onChange(value => {
   if(mesh) mesh.material.color.set(value);
 });
 
 // Light intensity
-gui.add(params, 'lightIntensity', 0, 5).name('Queres Luz?').onChange(value => {
+gui.add(params, 'lightIntensity', 0, 5).name('Lights Intensity').onChange(value => {
   directionalLights.forEach(light => light.intensity = value);
 });
 
 // Auto-rotate toggle
-gui.add(params, 'autoRotate').name('Rotação Automática');
+gui.add(params, 'autoRotate').name('Auto Rotate');
 
 // Background color
-gui.addColor(params, 'backgroundColor').name('Cor de Fundo').onChange(value => {
+gui.addColor(params, 'backgroundColor').name('Background Color').onChange(value => {
   scene.background.set(value);
 });
 
