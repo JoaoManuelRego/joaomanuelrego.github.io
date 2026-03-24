@@ -1,0 +1,21 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1000" rx="48" fill="url(#bg)"/>
+  <path d="M0 838L170 633L333 788L498 508L674 740L800 595V1000H0V838Z" fill="#1E093E" fill-opacity="0.24"/>
+  <path d="M0 891L162 720L322 835L489 577L659 790L800 640V1000H0V891Z" fill="#37106E" fill-opacity="0.44"/>
+  <circle cx="131" cy="166" r="100" fill="#FFF29F" fill-opacity="0.78"/>
+  <circle cx="656" cy="187" r="145" fill="#7BD7FF" fill-opacity="0.33"/>
+  <path d="M153 435L232 344L307 435L382 297L469 435L558 214L644 435" stroke="#FFF9E0" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M133 518L212 427L287 518L362 380L449 518L538 297L624 518" stroke="#FFF9E0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <rect x="88" y="88" width="226" height="42" rx="21" fill="white" fill-opacity="0.76"/>
+  <text x="112" y="116" fill="#67266F" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24" font-weight="700">LIMITED LOOK</text>
+  <text x="86" y="786" fill="white" font-family="Georgia, serif" font-size="76" font-weight="700">Festival</text>
+  <text x="86" y="858" fill="white" font-family="Georgia, serif" font-size="76" font-weight="700">Spark</text>
+  <text x="87" y="912" fill="white" fill-opacity="0.9" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="28">High-energy contrast for statement builds and event gifts.</text>
+  <defs>
+    <linearGradient id="bg" x1="75" y1="55" x2="722" y2="928" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE77A"/>
+      <stop offset="0.4" stop-color="#FF6CA8"/>
+      <stop offset="1" stop-color="#5A36FF"/>
+    </linearGradient>
+  </defs>
+</svg>

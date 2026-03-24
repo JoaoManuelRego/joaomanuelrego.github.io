@@ -1,0 +1,22 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1000" rx="48" fill="url(#bg)"/>
+  <circle cx="658" cy="182" r="168" fill="#8BEEFF" fill-opacity="0.46"/>
+  <circle cx="160" cy="180" r="106" fill="#FEFFAA" fill-opacity="0.5"/>
+  <path d="M0 691C95 647 182 625 261 625C384 625 508 679 631 679C701 679 757 662 800 636V1000H0V691Z" fill="#042B6B" fill-opacity="0.22"/>
+  <path d="M0 738C105 686 198 661 279 661C401 661 514 717 645 717C707 717 758 706 800 684V1000H0V738Z" fill="#0B57D0" fill-opacity="0.45"/>
+  <path d="M0 793C89 752 184 723 286 723C385 723 497 768 607 768C679 768 743 752 800 719V1000H0V793Z" fill="#1CD1E7" fill-opacity="0.5"/>
+  <rect x="84" y="90" width="214" height="42" rx="21" fill="white" fill-opacity="0.75"/>
+  <text x="108" y="118" fill="#0C4C78" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="24" font-weight="700">BOLD PALETTE</text>
+  <path d="M138 438C233 392 322 371 405 374C485 377 572 405 667 459" stroke="#D8FFFF" stroke-width="16" stroke-linecap="round"/>
+  <path d="M136 497C231 451 320 430 403 433C483 436 570 464 665 518" stroke="#D8FFFF" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+  <text x="83" y="793" fill="white" font-family="Georgia, serif" font-size="76" font-weight="700">Ocean</text>
+  <text x="83" y="865" fill="white" font-family="Georgia, serif" font-size="76" font-weight="700">Pulse</text>
+  <text x="84" y="919" fill="white" fill-opacity="0.88" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="28">A cooler color story for sleek desks and modern rooms.</text>
+  <defs>
+    <linearGradient id="bg" x1="71" y1="55" x2="714" y2="951" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E4FFFE"/>
+      <stop offset="0.44" stop-color="#67D9FF"/>
+      <stop offset="1" stop-color="#1A5CFF"/>
+    </linearGradient>
+  </defs>
+</svg>

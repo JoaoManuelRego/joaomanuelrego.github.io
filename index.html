@@ -3,33 +3,314 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Print Gifts Portfolio & Shop</title>
-
+  <title>ColorGlow 3D Print Gifts</title>
   <style>
+    :root {
+      --bg: #fff7ef;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: rgba(255, 255, 255, 0.92);
+      --ink: #1d1638;
+      --muted: #5f567b;
+      --line: rgba(68, 43, 126, 0.14);
+      --orange: #ff8a3d;
+      --yellow: #ffd84f;
+      --pink: #ff5ca8;
+      --blue: #2ea8ff;
+      --teal: #3ad6b5;
+      --shadow: 0 24px 60px rgba(84, 41, 122, 0.18);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #222;
+      font-family: "Aptos", "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(255, 138, 61, 0.28), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(46, 168, 255, 0.24), transparent 24%),
+        radial-gradient(circle at 20% 85%, rgba(255, 92, 168, 0.22), transparent 26%),
+        linear-gradient(180deg, #fff8ef 0%, #fff1fb 45%, #f9fcff 100%);
+      min-height: 100vh;
     }
 
-    header {
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #eee;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 90%);
     }
 
-    h1 { margin: 0; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    .viewer {
-      width: 90%;
-      max-width: 600px;
-      height: 400px;
-      margin: 30px auto;
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+      position: relative;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--pink), var(--orange), var(--yellow));
+      box-shadow: 0 14px 28px rgba(255, 92, 168, 0.28);
+      position: relative;
+    }
+
+    .brand-badge::after {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      clip-path: polygon(50% 0%, 100% 55%, 50% 100%, 0% 55%);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a,
+    .mini-pill {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.64);
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: var(--muted);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 28px;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .section-card,
+    .story-card,
+    .product,
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
       position: relative;
       overflow: hidden;
-      border-radius: 12px;
-      background: #f5f5f5;
+      padding: 42px;
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-copy::before,
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(6px);
+    }
+
+    .hero-copy::before {
+      width: 190px;
+      height: 190px;
+      top: -30px;
+      right: -20px;
+      background: radial-gradient(circle, rgba(255, 216, 79, 0.95), rgba(255, 216, 79, 0));
+    }
+
+    .hero-copy::after {
+      width: 210px;
+      height: 210px;
+      bottom: -100px;
+      left: -20px;
+      background: radial-gradient(circle, rgba(46, 168, 255, 0.32), rgba(46, 168, 255, 0));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.72);
+      color: #85407f;
+      border: 1px solid rgba(133, 64, 127, 0.12);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.02;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      max-width: 10ch;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy p {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 56ch;
+      margin-bottom: 28px;
+    }
+
+    .cta-row,
+    .stat-row,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #ff5ca8, #ff8a3d 58%, #ffd84f);
+      box-shadow: 0 14px 30px rgba(255, 92, 168, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .stat-row {
+      margin-top: 26px;
+    }
+
+    .stat {
+      min-width: 130px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid rgba(82, 55, 134, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 92, 168, 0.18), transparent 22%),
+        radial-gradient(circle at 85% 30%, rgba(58, 214, 181, 0.2), transparent 20%),
+        radial-gradient(circle at 55% 100%, rgba(255, 216, 79, 0.26), transparent 25%);
+      pointer-events: none;
+    }
+
+    .viewer-card {
+      position: relative;
+      z-index: 1;
+      border-radius: 28px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.72));
+      border: 1px solid rgba(90, 57, 135, 0.1);
+    }
+
+    .viewer-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .viewer {
+      width: 100%;
+      height: 430px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 216, 79, 0.3), transparent 20%),
+        radial-gradient(circle at 80% 80%, rgba(46, 168, 255, 0.22), transparent 24%),
+        linear-gradient(180deg, #ffffff, #f6f7ff);
+      border: 1px solid rgba(78, 61, 136, 0.08);
+      cursor: ew-resize;
     }
 
     .viewer img {
@@ -41,197 +322,495 @@
       left: 0;
       user-select: none;
       pointer-events: none;
+      padding: 12px;
     }
 
-    .section {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
+    .viewer-hint {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .section-card {
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      max-width: 56ch;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .story-grid,
+    .gallery,
+    .products {
+      display: grid;
+      gap: 18px;
+    }
+
+    .story-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .story-card {
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 180px;
+    }
+
+    .story-card:nth-child(1) {
+      background: linear-gradient(160deg, rgba(255, 245, 204, 0.9), rgba(255, 255, 255, 0.74));
+    }
+
+    .story-card:nth-child(2) {
+      background: linear-gradient(160deg, rgba(255, 224, 241, 0.92), rgba(255, 255, 255, 0.76));
+    }
+
+    .story-card:nth-child(3) {
+      background: linear-gradient(160deg, rgba(217, 247, 255, 0.92), rgba(255, 255, 255, 0.76));
+    }
+
+    .story-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.45rem;
+    }
+
+    .story-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .gallery img {
+    .gallery-item,
+    .product {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .gallery-item img,
+    .product img {
       width: 100%;
-      border-radius: 10px;
+      display: block;
+    }
+
+    .gallery-item img {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      color: white;
+      background: linear-gradient(180deg, rgba(26, 13, 48, 0.08), rgba(26, 13, 48, 0.74));
+    }
+
+    .gallery-caption strong,
+    .product-copy h3 {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.08rem;
+    }
+
+    .gallery-caption span,
+    .product-copy p,
+    .contact-card p {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.5;
     }
 
     .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .product {
-      border: 1px solid #eee;
-      border-radius: 10px;
-      padding: 15px;
-      text-align: center;
+      padding: 14px;
+      background: var(--surface-strong);
+      border: 1px solid rgba(255, 255, 255, 0.78);
     }
 
-    .product img {
-      width: 100%;
-      border-radius: 8px;
+    .product-media {
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #fbfcff, #f2f4ff);
     }
 
-    .btn {
-      margin-top: 10px;
-      padding: 10px;
-      background: #222;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+    .product-media img {
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      padding: 12px;
+    }
+
+    .product-copy {
+      padding: 6px 6px 10px;
+    }
+
+    .product-copy p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .price-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 216, 79, 0.26);
+      color: #7e5600;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 92, 168, 0.22), transparent 20%),
+        radial-gradient(circle at 15% 100%, rgba(46, 168, 255, 0.18), transparent 24%),
+        var(--surface);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 56ch;
+      margin: 12px 0 22px;
     }
 
     footer {
+      padding: 26px 0 8px;
       text-align: center;
-      padding: 20px;
-      border-top: 1px solid #eee;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #777;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .story-grid,
+      .gallery,
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .section-card,
+      .contact-card {
+        padding: 22px;
+      }
+
+      .viewer {
+        height: 360px;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 20px, 1180px);
+        padding-top: 14px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 15vw, 3.6rem);
+      }
+
+      .viewer {
+        height: 300px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="page" id="top">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>ColorGlow Prints</span>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#story">Story</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<header>
-  <h1>Custom 3D Print Gifts</h1>
-  <p>Create meaningful objects from your ideas</p>
-</header>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Colorful custom gifts for celebrations, desks, and display shelves</div>
+        <h1>3D prints that feel joyful before the box is even opened.</h1>
+        <p>
+          Bright palettes, playful forms, and personal ideas turned into collectible objects. The
+          centerpiece below is still interactive, so visitors can drag to rotate it and explore the
+          design from every angle.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#shop">Start a custom order</a>
+          <a class="btn btn-secondary" href="#gallery">See inspiration</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat">
+            <strong>50</strong>
+            <span>viewer frames loaded</span>
+          </div>
+          <div class="stat">
+            <strong>4</strong>
+            <span>new artwork promos</span>
+          </div>
+          <div class="stat">
+            <strong>∞</strong>
+            <span>ways to personalize</span>
+          </div>
+        </div>
+      </div>
 
-<!-- 3D Viewer (UNCHANGED LOGIC) -->
-<div class="viewer" id="viewer">
-  <img id="image" src="images/0_0.png">
-</div>
+      <div class="hero-panel">
+        <div class="viewer-card">
+          <div class="viewer-meta">
+            <span class="mini-pill">Interactive preview</span>
+            <span>Drag left or right</span>
+          </div>
+          <div class="viewer" id="viewer">
+            <img id="image" src="images/0_0.jpg" alt="Rotating 3D product preview">
+          </div>
+          <div class="viewer-hint">Swipe on mobile or drag with your mouse to rotate the object</div>
+        </div>
+      </div>
+    </section>
 
-<div class="section">
-  <h2>About</h2>
-  <p>
-    Each piece is designed to tell a story. These customizable 3D printed objects
-    are made to represent personal meaning, memories, or unique ideas.
-  </p>
-</div>
+    <section class="section-card" id="story">
+      <div class="section-heading">
+        <div>
+          <h2>Made for memory-heavy moments</h2>
+        </div>
+        <p>
+          This version of the website leans into a warmer, more boutique look with much stronger
+          color, softer cards, and a more polished first impression.
+        </p>
+      </div>
+      <div class="story-grid">
+        <article class="story-card">
+          <h3>Gifts with personality</h3>
+          <p>Turn sketches, hobbies, inside jokes, and favorite colors into pieces that feel unmistakably yours.</p>
+        </article>
+        <article class="story-card">
+          <h3>Display-ready finishes</h3>
+          <p>Designed to look good on desks, bookshelves, gaming setups, studio walls, and party tables.</p>
+        </article>
+        <article class="story-card">
+          <h3>Built to stand out</h3>
+          <p>Confident tones and playful compositions make the shop feel more alive than a plain white catalog.</p>
+        </article>
+      </div>
+    </section>
 
-<div class="section">
-  <h2>Inspiration Gallery</h2>
-  <div class="gallery">
-    <img src="images/static1.jpg">
-    <img src="images/static2.jpg">
-    <img src="images/static3.jpg">
-    <img src="images/static4.jpg">
+    <section class="section-card" id="gallery">
+      <div class="section-heading">
+        <div>
+          <h2>Inspiration gallery</h2>
+        </div>
+        <p>Fresh artwork has been generated into the images folder and wired into the page as colorful promotional visuals.</p>
+      </div>
+      <div class="gallery">
+        <figure class="gallery-item">
+          <img src="images/static1.svg" alt="Warm sunset inspired custom print concept artwork">
+          <figcaption class="gallery-caption">
+            <strong>Sunset Bloom</strong>
+            <span>Warm gradients for celebratory and heartfelt keepsakes.</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/static2.svg" alt="Ocean inspired custom print concept artwork">
+          <figcaption class="gallery-caption">
+            <strong>Ocean Pulse</strong>
+            <span>Cool energetic tones for modern desk pieces and collectibles.</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/static3.svg" alt="Candy pastel custom print concept artwork">
+          <figcaption class="gallery-caption">
+            <strong>Candy Orbit</strong>
+            <span>Playful color mixes that feel light, fun, and gift-ready.</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/static4.svg" alt="Festival inspired custom print concept artwork">
+          <figcaption class="gallery-caption">
+            <strong>Festival Spark</strong>
+            <span>High-contrast layers for statement pieces with extra energy.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section-card" id="shop">
+      <div class="section-heading">
+        <div>
+          <h2>Shop the vibe</h2>
+        </div>
+        <p>
+          I also swapped the product cards over to real images that already exist in the project so
+          there are no broken thumbnails.
+        </p>
+      </div>
+      <div class="products">
+        <article class="product">
+          <div class="product-media">
+            <img src="images/0_6.jpg" alt="Angular 3D printed object shown in product card">
+          </div>
+          <div class="product-copy">
+            <div class="price-tag">Starting at &euro;50</div>
+            <h3>Signature Desk Totem</h3>
+            <p>A compact personalized object for workspaces, shelves, and streamer setups.</p>
+            <button class="btn btn-primary">Customize</button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-media">
+            <img src="images/0_20.jpg" alt="Curved 3D printed object shown in product card">
+          </div>
+          <div class="product-copy">
+            <div class="price-tag">Starting at &euro;70</div>
+            <h3>Storypiece Display</h3>
+            <p>A more sculptural format for names, symbols, and special date-based gifts.</p>
+            <button class="btn btn-primary">Customize</button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-media">
+            <img src="images/0_34.jpg" alt="Premium 3D printed object shown in product card">
+          </div>
+          <div class="product-copy">
+            <div class="price-tag">Starting at &euro;90</div>
+            <h3>Collector Edition Build</h3>
+            <p>A premium presentation piece for milestone gifts and one-off commissions.</p>
+            <button class="btn btn-primary">Customize</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-card" id="contact">
+      <h2>Let&apos;s make something personal</h2>
+      <p>
+        Share a theme, name, memory, or rough sketch and turn it into a bright custom object that
+        feels designed for one person only.
+      </p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:your@email.com">your@email.com</a>
+        <a class="btn btn-secondary" href="#top">Back to top</a>
+      </div>
+    </section>
+
+    <footer>&copy; 2026 ColorGlow 3D Print Gifts</footer>
   </div>
-</div>
 
-<div class="section">
-  <h2>Shop</h2>
-  <div class="products">
+  <script>
+    const images = [];
+    const totalImages = 50;
 
-    <div class="product">
-      <img src="images/static1.jpg">
-      <h3>Custom Object A</h3>
-      <p>Starting at €50</p>
-      <button class="btn">Customize</button>
-    </div>
+    for (let i = 0; i < totalImages; i++) {
+      const imgPath = `images/0_${i}.jpg`;
+      images.push(imgPath);
+      const preloadImg = new window.Image();
+      preloadImg.src = imgPath;
+    }
 
-    <div class="product">
-      <img src="images/static2.jpg">
-      <h3>Custom Object B</h3>
-      <p>Starting at €70</p>
-      <button class="btn">Customize</button>
-    </div>
+    let currentIndex = 0;
+    const imgElement = document.getElementById("image");
+    const viewer = document.getElementById("viewer");
+    let startX = 0;
+    let isDragging = false;
 
-    <div class="product">
-      <img src="images/static3.jpg">
-      <h3>Custom Object C</h3>
-      <p>Starting at €90</p>
-      <button class="btn">Customize</button>
-    </div>
+    function updateImage() {
+      imgElement.src = images[currentIndex];
+    }
 
-  </div>
-</div>
-
-<div class="section">
-  <h2>Contact</h2>
-  <p>Email: your@email.com</p>
-</div>
-
-<footer>
-  © 2026 Custom 3D Print Gifts
-</footer>
-
-<script>
-  const images = [];
-  const totalImages = 50;
-
-  // Preload all images for smooth online experience
-  for (let i = 0; i < totalImages; i++) {
-    const imgPath = `images/0_${i}.png`;
-    images.push(imgPath);
-    const preloadImg = new window.Image();
-    preloadImg.src = imgPath;
-  }
-
-  let currentIndex = 0;
-  const imgElement = document.getElementById('image');
-
-  function updateImage() {
-    imgElement.src = images[currentIndex];
-  }
-
-  let startX = 0;
-  let isDragging = false;
-
-  const viewer = document.getElementById('viewer');
-
-  viewer.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.clientX;
-  });
-
-  viewer.addEventListener('mouseup', () => isDragging = false);
-  viewer.addEventListener('mouseleave', () => isDragging = false);
-
-  viewer.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-
-    const diff = e.clientX - startX;
-
-    if (Math.abs(diff) > 10) {
-      if (diff > 0) {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-      } else {
-        currentIndex = (currentIndex + 1) % images.length;
-      }
-      updateImage();
+    viewer.addEventListener("mousedown", (e) => {
+      isDragging = true;
       startX = e.clientX;
-    }
-  });
+    });
 
-  viewer.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
+    viewer.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
 
-  viewer.addEventListener('touchmove', (e) => {
-    const currentX = e.touches[0].clientX;
-    const diff = currentX - startX;
+    viewer.addEventListener("mouseleave", () => {
+      isDragging = false;
+    });
 
-    if (Math.abs(diff) > 10) {
-      if (diff > 0) {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-      } else {
-        currentIndex = (currentIndex + 1) % images.length;
+    viewer.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+
+      const diff = e.clientX - startX;
+
+      if (Math.abs(diff) > 10) {
+        if (diff > 0) {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+        } else {
+          currentIndex = (currentIndex + 1) % images.length;
+        }
+        updateImage();
+        startX = e.clientX;
       }
-      updateImage();
-      startX = currentX;
-    }
-  });
-</script>
+    });
 
+    viewer.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    viewer.addEventListener("touchmove", (e) => {
+      const currentX = e.touches[0].clientX;
+      const diff = currentX - startX;
+
+      if (Math.abs(diff) > 10) {
+        if (diff > 0) {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+        } else {
+          currentIndex = (currentIndex + 1) % images.length;
+        }
+        updateImage();
+        startX = currentX;
+      }
+    });
+  </script>
 </body>
 </html>
