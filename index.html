@@ -169,8 +169,12 @@
   const images = [];
   const totalImages = 50;
 
+  // Preload all images for smooth online experience
   for (let i = 0; i < totalImages; i++) {
-    images.push(`images/0_${i}.png`);
+    const imgPath = `images/0_${i}.png`;
+    images.push(imgPath);
+    const preloadImg = new window.Image();
+    preloadImg.src = imgPath;
   }
 
   let currentIndex = 0;
