@@ -337,6 +337,12 @@
       font-size: 0.92rem;
     }
 
+    .audio-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
     .section-card {
       border-radius: var(--radius-lg);
       padding: 26px;
@@ -610,6 +616,7 @@
             <img id="image" src="images/0_0.jpg" alt="Rotating 3D product preview">
           </div>
           <div class="viewer-hint">Swipe on mobile or drag with your mouse to rotate the object</div>
+          <div class="audio-note">Music starts when the rotation begins.</div>
         </div>
       </div>
     </section>
@@ -743,6 +750,8 @@
     <footer>&copy; 2026 ColorGlow 3D Print Gifts</footer>
   </div>
 
+    <audio id="rotation-audio" src="audio/rotation-music.mp3" preload="auto" loop></audio>
+
   <script>
     const images = [];
     const totalImages = 50;
@@ -757,14 +766,29 @@
     let currentIndex = 0;
     const imgElement = document.getElementById("image");
     const viewer = document.getElementById("viewer");
+    const rotationAudio = document.getElementById("rotation-audio");
     let startX = 0;
     let isDragging = false;
+    let audioStarted = false;
 
     function updateImage() {
       imgElement.src = images[currentIndex];
     }
 
+    function startRotationAudio() {
+      if (audioStarted) return;
+      audioStarted = true;
+
+      const playPromise = rotationAudio.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {
+          audioStarted = false;
+        });
+      }
+    }
+
     viewer.addEventListener("mousedown", (e) => {
+      startRotationAudio();
       isDragging = true;
       startX = e.clientX;
     });
@@ -794,6 +818,7 @@
     });
 
     viewer.addEventListener("touchstart", (e) => {
+      startRotationAudio();
       startX = e.touches[0].clientX;
     });
 
